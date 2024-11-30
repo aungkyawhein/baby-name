@@ -10,8 +10,8 @@ export default function NamesMM() {
       <Header />
       <main className="flex flex-col gap-8 row-start-2 items-center">
         <div className='columns-3 gap-16'>{
-          mmNames.map((name) => (
-            <div>{name}</div>
+          mmNames.map((name, i) => (
+            <div key={i}>{name}</div>
           ))
         }
         </div>

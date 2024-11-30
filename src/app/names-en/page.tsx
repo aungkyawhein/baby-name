@@ -10,8 +10,8 @@ export default function NamesEN() {
       <Header />
       <main className="flex flex-col gap-8 row-start-2 items-center">
         <div className='columns-3 gap-16'>{
-          enNames.map((name) => (
-            <div>{name}</div>
+          enNames.map((name, i) => (
+            <div key={i}>{name}</div>
           ))
         }
         </div>
