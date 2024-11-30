@@ -27,7 +27,7 @@ export default function Footer() {
           width={16}
           height={16}
         />
-        Names list
+        English names list
       </a>
     </footer>
   );
