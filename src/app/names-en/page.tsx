@@ -1,4 +1,4 @@
-import en from '../en.json'
+import en from '../data/en.json'
 import Footer from '../footer'
 import Header from '../header'
 

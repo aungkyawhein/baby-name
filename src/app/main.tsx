@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import en from './en.json'
-import mm from './mm.json'
+import en from './data/en.json'
+import mm from './data/mm.json'
 
 export default function Main() {
   const [name, setName] = useState('')

@@ -1,6 +1,6 @@
+import mm from '../data/mm.json'
 import Footer from '../footer'
 import Header from '../header'
-import mm from '../mm.json'
 
 export default function NamesMM() {
   const mmNames = mm
