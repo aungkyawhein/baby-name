@@ -1,94 +1,15 @@
 'use client'
 
 import { useEffect, useState } from "react"
+import en from './en.json'
+import mm from './mm.json'
 
 export default function Main() {
   const [name, setName] = useState('')
 
-  const mmNames = [
-    'ကို',
-    'ကောင်း',
-    'ကျော်',
-    'ခင်',
-    'ခိုင်',
-    'ဂျမ်း',
-    'ငြိမ်း',
-    'စိုး',
-    'စံ',
-    'ဆန်း',
-    'ဇံ',
-    'ဇာ',
-    'ဇင်',
-    'ဇွဲ',
-    'ဇော်',
-    'ညိမ်း',
-    'ဏ',
-    'တင်',
-    'တွတ်',
-    'ထင်',
-    'ထိန်',
-    'ထွန်း',
-    'ထက်',
-    'ဒွေး',
-    'ဒေါင်း',
-    'ဒွန်း',
-    'နီ',
-    'နှင်း',
-    'ပြည့်',
-    'ပု',
-    'ပုံ',
-    'ပို',
-    'ပေါ်',
-    'ဖေ',
-    'ဖြိုး',
-    'ဗေ',
-    'ဘု',
-    'ဘ',
-    'မင်း',
-    'မှုံ',
-    'ယု',
-    'ရန်',
-    'လု',
-    'လင်း',
-    'လေး',
-    'လ',
-    'လွင်',
-    'ဝင်း',
-    'ဝိန်း',
-    'သန့်',
-    'ဟိန်း',
-    'အောင်',
-    'အေး',
-  ]
+  const mmNames = mm
 
-  const enNames = [
-    'Andy',
-    'Bryan',
-    'Charlotte',
-    'Dylan',
-    'Evelyn',
-    'Frank',
-    'Grace',
-    'Henry',
-    'Isla',
-    'Jack',
-    'Katherine',
-    'Liam',
-    'Mason',
-    'Nora',
-    'Oliver',
-    'Peyton',
-    'Quinn',
-    'Ryan',
-    'Sophia',
-    'Thomas',
-    'Uma',
-    'Violet',
-    'William',
-    'Xander',
-    'Yvonne',
-    'Zachary'
-  ]
+  const enNames = en
 
   const names = [
     ...mmNames,
