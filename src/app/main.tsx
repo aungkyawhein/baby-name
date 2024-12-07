@@ -8,38 +8,55 @@ export default function Main() {
   const [name, setName] = useState('')
 
   const mmNames = mm
-
   const enNames = en
-
   const names = [
     ...mmNames,
     ...enNames,
   ]
 
-  function getRandomName(namesArray: string[]): string {
-    const randomName: string[] = []
+  function getPermutations<T>(arr: T[]): T[][] {
+    if (arr.length === 0) return [[]];
+    const result: T[][] = [];
 
-    while (randomName.length < 3) {
+    for (let i = 0; i < arr.length; i++) {
+      const current = arr[i];
+      const remaining = arr.slice(0, i).concat(arr.slice(i + 1));
+      const perms = getPermutations(remaining);
+
+      for (const perm of perms) {
+        result.push([current, ...perm]);
+      }
+    }
+    return result;
+  }
+
+  function getRandomName(namesArray: string[]): string {
+    const randomNames: string[] = []
+
+    while (randomNames.length < 3) {
       const randomIndex = Math.floor(Math.random() * namesArray.length)
       const selectedName = namesArray[randomIndex]
 
       // Avoid duplicates
-      if (!randomName.includes(selectedName)) {
-        randomName.push(selectedName)
+      if (!randomNames.includes(selectedName)) {
+        randomNames.push(selectedName)
       }
     }
 
-    return randomName.join(' ')
+    return randomNames.join(' ')
+  }
+
+  function setRandomNames(): void {
+    const _name = getRandomName(names)
+    setName(_name)
   }
 
   useEffect(() => {
-    const _name = getRandomName(names)
-    setName(_name)
+    setRandomNames()
   }, [])
 
   const handleClick = () => {
-    const _name = getRandomName(names)
-    setName(_name)
+    setRandomNames()
   }
 
   return (
@@ -47,6 +64,14 @@ export default function Main() {
       <h3 className="text-xl text-stone-800 dark:text-stone-200 border border-solid border-zinc-600 dark:border-zinc-400 px-12 py-3 rounded-full">
         { name }
       </h3>
+
+      <div className="flex flex-row gap-4 text-slate-500 text-sm">{
+        getPermutations(name.split(' ')).map((item, i) => {
+          if (i > 0) {
+            return <div key={i}>{item.join(' ')}</div>
+          }
+        })
+      }</div>
 
       <div className="flex gap-4 items-center flex-col sm:flex-row">
         <button
